@@ -1,22 +1,31 @@
 package com.example.studentsapp.repository
 
 import com.example.studentsapp.models.Student
-import com.example.studentsapp.R
 
 object StudentRepository {
+
     private val students = mutableListOf<Student>()
 
-    fun getStudents(): List<Student> = students
-
+    // Add a student to the list (used when adding a new student)
     fun addStudent(student: Student) {
         students.add(student)
     }
 
-    fun updateStudent(index: Int, student: Student) {
-        students[index] = student
+    // Update a student's details (used when editing a student)
+    fun updateStudent(updatedStudent: Student) {
+        val index = students.indexOfFirst { it.id == updatedStudent.id }
+        if (index != -1) {
+            students[index] = updatedStudent
+        }
     }
 
-    fun deleteStudent(index: Int) {
-        students.removeAt(index)
+    // Delete a student from the list
+    fun deleteStudent(student: Student) {
+        students.removeIf { it.id == student.id }
+    }
+
+    // Get all students
+    fun getStudents(): List<Student> {
+        return students
     }
 }

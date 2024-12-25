@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.studentsapp.adapters.StudentAdapter
+import com.example.studentsapp.models.Student
 import com.example.studentsapp.repository.StudentRepository
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -26,10 +27,10 @@ class MainActivity : AppCompatActivity() {
 
         // Add sample data
         StudentRepository.addStudent(
-            Student("1", "John Doe", false, R.drawable.student_pic)
+            Student("1", "John Doe", false, R.drawable.student_pic_background)
         )
         StudentRepository.addStudent(
-            Student("2", "Jane Smith", false, R.drawable.student_pic)
+            Student("2", "Jane Smith", false, R.drawable.student_pic_background)
         )
     }
 
