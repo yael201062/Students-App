@@ -11,7 +11,6 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
 
-        <!-- Main activity (entry point of the app) -->
         <activity android:name=".StudentListActivity"
             android:exported="true">
             <intent-filter>

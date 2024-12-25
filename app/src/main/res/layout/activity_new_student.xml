@@ -1,31 +1,64 @@
-<LinearLayout android:orientation="vertical"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <EditText
         android:id="@+id/editName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Name" />
+        android:hint="Enter Name"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/editId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="ID" />
+        android:hint="Enter ID"
+        android:inputType="text" />
 
-    <ImageView
-        android:id="@+id/imageStudent"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/student_pic_background"
-        android:layout_gravity="center" />
-
-    <Button
-        android:id="@+id/btnSave"
+    <EditText
+        android:id="@+id/editPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save" />
+        android:hint="Enter Phone"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/editAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Address"
+        android:inputType="text" />
+
+    <CheckBox
+        android:id="@+id/checkActive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Checked" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:paddingTop="16dp">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cancel" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Save" />
+    </LinearLayout>
+
 </LinearLayout>
