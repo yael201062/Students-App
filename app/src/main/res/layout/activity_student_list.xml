@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Title: Student List -->
-    <TextView
-        android:id="@+id/textTitle"
-        android:layout_width="wrap_content"
+    <!-- Toolbar for the title -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Student List"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_gravity="center" />
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp">
+
+        <!-- TextView for title inside the Toolbar -->
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Student List"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_gravity="center" />
+
+    </androidx.appcompat.widget.Toolbar>
 
     <!-- RecyclerView for displaying the list of students -->
     <androidx.recyclerview.widget.RecyclerView

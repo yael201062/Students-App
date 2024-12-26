@@ -32,6 +32,8 @@ class NewStudentActivity : AppCompatActivity() {
                 val newStudent = Student(
                     id = id,
                     name = name,
+                    address = address,
+                    phone = phone,
                     isChecked = isActive,
                     imageResId = R.drawable.student_pic_background
                 )

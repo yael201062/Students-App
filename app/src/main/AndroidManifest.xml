@@ -2,30 +2,36 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.studentsapp">
 
-    <!-- Required permissions (if any) go here -->
-    <!-- Example: <uses-permission android:name="android.permission.INTERNET" /> -->
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
 
-        <activity android:name=".StudentListActivity"
-            android:exported="true">
+        <activity
+            android:name=".StudentListActivity"
+            android:exported="true"
+            android:label="Student List">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <!-- Other activities -->
-        <activity android:name=".NewStudentActivity"
-            android:exported="false" />
-        <activity android:name=".StudentDetailsActivity"
-            android:exported="false" />
-        <activity android:name=".EditStudentActivity"
-            android:exported="false" />
+        <activity
+            android:name=".NewStudentActivity"
+            android:exported="false"
+            android:label="Add New Student" />
+
+        <activity
+            android:name=".StudentDetailsActivity"
+            android:exported="false"
+            android:label="Student Details" />
+
+        <activity
+            android:name=".EditStudentActivity"
+            android:exported="false"
+            android:label="Edit Student" />
 
     </application>
 </manifest>
