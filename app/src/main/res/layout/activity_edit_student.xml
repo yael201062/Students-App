@@ -1,31 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Edit Text for Student Name -->
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp" />
+
+    <!-- Student fields for editing -->
     <EditText
         android:id="@+id/editName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Name" />
+        android:hint="Enter Name"
+        android:textSize="16sp"
+        android:minHeight="48dp"
+        android:layout_marginBottom="8dp" />
 
-    <!-- Edit Text for Student ID -->
     <EditText
         android:id="@+id/editId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter ID" />
+        android:hint="Enter ID"
+        android:textSize="16sp"
+        android:minHeight="48dp"
+        android:layout_marginBottom="8dp" />
 
-    <!-- Button to Save Changes -->
+    <EditText
+        android:id="@+id/editPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Phone"
+        android:textSize="16sp"
+        android:minHeight="48dp"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/editAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Address"
+        android:textSize="16sp"
+        android:minHeight="48dp"
+        android:layout_marginBottom="8dp" />
+
+    <CheckBox
+        android:id="@+id/editChecked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Checked"
+        android:layout_marginTop="16dp" />
+
+    <!-- Save and Delete buttons -->
     <Button
         android:id="@+id/btnSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save Changes" />
+        android:text="Save Changes"
+        android:layout_marginBottom="8dp" />
 
-    <!-- Button to Delete the Student -->
     <Button
         android:id="@+id/btnDelete"
         android:layout_width="match_parent"
