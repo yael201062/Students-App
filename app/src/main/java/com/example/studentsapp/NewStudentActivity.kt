@@ -1,6 +1,7 @@
 
 package com.example.studentsapp
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.studentsapp.R
@@ -17,21 +18,30 @@ class NewStudentActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnCancel.setOnClickListener {
-            finish() // Close the activity
+            finish()
         }
 
         binding.btnSave.setOnClickListener {
-            // Gather the data from the input fields
             val name = binding.editName.text.toString()
             val id = binding.editId.text.toString()
             val phone = binding.editPhone.text.toString()
             val address = binding.editAddress.text.toString()
             val isActive = binding.checkActive.isChecked
 
+            if (name.isNotEmpty() && id.isNotEmpty() && phone.isNotEmpty() && address.isNotEmpty()) {
+                val newStudent = Student(
+                    id = id,
+                    name = name,
+                    isChecked = isActive,
+                    imageResId = R.drawable.student_pic_background
+                )
 
-            val newStudent = Student(name, id, false, R.drawable.student_pic_background) // Use the default image
-
-            finish()
+                val resultIntent = Intent().apply {
+                    putExtra("newStudent", newStudent)
+                }
+                setResult(RESULT_OK, resultIntent)
+                finish()
+            }
         }
     }
 }
