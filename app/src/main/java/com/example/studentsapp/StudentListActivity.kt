@@ -22,7 +22,7 @@ class StudentListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityStudentListBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        students.addAll(StudentStorage.loadStudents(this))
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
 
         adapter = StudentAdapter(
@@ -43,17 +43,6 @@ class StudentListActivity : AppCompatActivity() {
             val intent = Intent(this, NewStudentActivity::class.java)
             startActivityForResult(intent, REQUEST_CODE_ADD_STUDENT)
         }
-
-        loadStudents()
-    }
-
-    private fun loadStudents() {
-        // Add initial dummy students
-        students.add(Student("John Doe", "S001", false, R.drawable.student_pic_background))
-        students.add(Student("Jane Smith", "S002", false, R.drawable.student_pic_background))
-        students.add(Student("Alice Johnson", "S003", false, R.drawable.student_pic_background))
-        students.add(Student("Bob Brown", "S004", false, R.drawable.student_pic_background))
-        adapter.notifyDataSetChanged()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -63,6 +52,7 @@ class StudentListActivity : AppCompatActivity() {
             if (newStudent != null) {
                 students.add(newStudent)
                 adapter.notifyDataSetChanged()
+                StudentStorage.saveStudents(this, students)
             }
         }
     }
