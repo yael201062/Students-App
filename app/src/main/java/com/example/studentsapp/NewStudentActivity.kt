@@ -35,7 +35,7 @@ class NewStudentActivity : AppCompatActivity() {
                     address = address,
                     phone = phone,
                     isChecked = isActive,
-                    imageResId = R.drawable.student_pic_background
+                    imageResId = R.mipmap.student_pic_app
                 )
 
                 val resultIntent = Intent().apply {
