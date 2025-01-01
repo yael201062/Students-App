@@ -1,8 +1,9 @@
-
 package com.example.studentsapp
 
 import android.content.Intent
+import android.graphics.Typeface
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.studentsapp.R
 import com.example.studentsapp.databinding.ActivityNewStudentBinding
@@ -17,9 +18,21 @@ class NewStudentActivity : AppCompatActivity() {
         binding = ActivityNewStudentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true) // Show the back button
+            setTitle("New Student")
+        }
+        val titleTextView = binding.toolbar.getChildAt(0) as TextView
+        titleTextView.setTypeface(null, Typeface.BOLD)
+
+
+
         binding.btnCancel.setOnClickListener {
             finish()
         }
+
 
         binding.btnSave.setOnClickListener {
             val name = binding.editName.text.toString()
@@ -45,5 +58,10 @@ class NewStudentActivity : AppCompatActivity() {
                 finish()
             }
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 }

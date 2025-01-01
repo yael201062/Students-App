@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Toolbar -->
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -13,7 +13,22 @@
         android:background="?attr/colorPrimary"
         android:elevation="4dp" />
 
-    <!-- Student fields for editing -->
+    <ImageView
+        android:id="@+id/imageStudent"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="start"
+        android:layout_marginEnd="16dp"
+        android:src="@mipmap/student_pic_app"
+        android:contentDescription="Student Image" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name:"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp" />
     <EditText
         android:id="@+id/editName"
         android:layout_width="match_parent"
@@ -23,6 +38,13 @@
         android:minHeight="48dp"
         android:layout_marginBottom="8dp" />
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ID:"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp" />
     <EditText
         android:id="@+id/editId"
         android:layout_width="match_parent"
@@ -32,6 +54,13 @@
         android:minHeight="48dp"
         android:layout_marginBottom="8dp" />
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Phone:"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp" />
     <EditText
         android:id="@+id/editPhone"
         android:layout_width="match_parent"
@@ -41,6 +70,13 @@
         android:minHeight="48dp"
         android:layout_marginBottom="8dp" />
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Address:"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp" />
     <EditText
         android:id="@+id/editAddress"
         android:layout_width="match_parent"
@@ -50,14 +86,21 @@
         android:minHeight="48dp"
         android:layout_marginBottom="8dp" />
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Checked Status:"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp" />
     <CheckBox
         android:id="@+id/editChecked"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Checked"
-        android:layout_marginTop="16dp" />
+        android:layout_marginBottom="16dp" />
 
-    <!-- Save and Delete buttons -->
+
     <Button
         android:id="@+id/btnSave"
         android:layout_width="match_parent"
@@ -70,4 +113,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Delete Student" />
+
 </LinearLayout>
