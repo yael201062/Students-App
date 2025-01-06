@@ -1,28 +1,41 @@
 package com.example.studentsapp.repository
 
+import android.content.Context
 import com.example.studentsapp.models.Student
 
 object StudentRepository {
 
     private val students = mutableListOf<Student>()
 
-    // Add a student to the list (used when adding a new student)
-    fun addStudent(student: Student) {
-        students.add(student)
+    fun loadStudents(context: Context) {
+        students.clear()
+        students.addAll(StudentStorage.loadStudents(context))
     }
 
-    // Update a student's details (used when editing a student)
-    fun updateStudent(updatedStudent: Student) {
+    fun addStudent(context: Context, student: Student) {
+        students.add(student)
+        StudentStorage.saveStudents(context, students)
+    }
+
+    fun updateStudent(context: Context, updatedStudent: Student) {
         val index = students.indexOfFirst { it.id == updatedStudent.id }
         if (index != -1) {
             students[index] = updatedStudent
+            StudentStorage.saveStudents(context, students)
         }
     }
 
-    // Delete a student from the list
-    fun deleteStudent(student: Student) {
-        students.removeIf { it.id == student.id }
+    fun deleteStudent(context: Context, student: Student) {
+        val iterator = students.iterator()
+        while (iterator.hasNext()) {
+            if (iterator.next().id == student.id) {
+                iterator.remove()
+                break
+            }
+        }
+        StudentStorage.saveStudents(context, students)
     }
+
 
     // Get all students
     fun getStudents(): List<Student> {
