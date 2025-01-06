@@ -26,11 +26,12 @@ class StudentListActivity : AppCompatActivity() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = StudentAdapter(
             students,
-            onStudentClick = { student ->
+            onStudentClick = { student, position ->
                 val intent = Intent(this, StudentDetailsActivity::class.java).apply {
                     putExtra("student", student)
+                    putExtra("position", position)
                 }
-                startActivityForResult(intent, REQUEST_CODE_VIEW_DETAILS)  // שיחה עם StudentDetailsActivity
+                startActivityForResult(intent, REQUEST_CODE_VIEW_DETAILS)
             },
             onCheckboxClick = { student, isChecked ->
                 student.isChecked = isChecked
@@ -51,13 +52,23 @@ class StudentListActivity : AppCompatActivity() {
             when (requestCode) {
                 REQUEST_CODE_VIEW_DETAILS -> {
                     val updatedStudent = data?.getSerializableExtra("updatedStudent") as? Student
+                    val position = data?.getIntExtra("position", -1) ?: -1
+
                     updatedStudent?.let {
-                        // עדכון הסטודנט ברשימה
-                        val index = students.indexOfFirst { it.id == updatedStudent.id }
-                        if (index != -1) {
-                            students[index] = updatedStudent
+                        if (position != -1) {
+                            students[position] = updatedStudent
                             StudentRepository.updateStudent(this, updatedStudent)
-                            adapter.notifyItemChanged(index) // עדכון ה-RecyclerView
+                            adapter.notifyItemChanged(position)
+                        }
+                    }
+
+                    val deletedStudent = data?.getSerializableExtra("deletedStudent") as? Student
+                    deletedStudent?.let {
+                        val index = students.indexOfFirst { it.id == deletedStudent.id }
+                        if (index != -1) {
+                            students.removeAt(index)
+                            StudentRepository.deleteStudent(this, deletedStudent)
+                            adapter.notifyItemRemoved(index)
                         }
                     }
                 }
@@ -71,9 +82,7 @@ class StudentListActivity : AppCompatActivity() {
                 }
             }
         }
-    }
-
-    companion object {
+    }    companion object {
         const val REQUEST_CODE_VIEW_DETAILS = 1
         const val REQUEST_CODE_ADD_STUDENT = 2
     }
